@@ -17,41 +17,42 @@ class FollowedCourseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Navigate to CourseInfoScreen
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => CourseInfo(
-              courseID: this.courseID,
-              courseName: this.courseName,
-              courseCode: this.courseCode,
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: GestureDetector(
+        onTap: () {
+          // Navigate to CourseInfoScreen
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => CourseInfo(
+                courseID: this.courseID,
+                courseName: this.courseName,
+                courseCode: this.courseCode,
+              ),
             ),
-          ),
-        );
-      },
-      child: Container(
-        width: double.infinity,
-        margin: const EdgeInsets.only(bottom: 16.0),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment(0.70, -0.72),
-            end: Alignment(-0.7, 0.72),
-            colors: [Color(0xFF8A78FF), Color(0xFF5451D6)],
-          ),
-          borderRadius: BorderRadius.circular(16), // Adjusted border radius
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
+          );
+        },
+        child: Container(
+          width: double.infinity,
+          margin: const EdgeInsets.only(bottom: 16.0),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              begin: Alignment(0.70, -0.72),
+              end: Alignment(-0.7, 0.72),
+              colors: [Color(0xFF8A78FF), Color(0xFF5451D6)],
             ),
-          ],
-        ),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal, // Enable horizontal scrolling
+            borderRadius: BorderRadius.circular(20), // Adjusted border radius
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -94,7 +95,7 @@ class FollowedCourseItem extends StatelessWidget {
                   child: Center(
                     child: Text(
                       isFollowed ? 'Following' : 'Follow',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),

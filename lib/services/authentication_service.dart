@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -100,86 +100,86 @@ class AuthenticationService {
   }
 
   //Google Sign In
-  Future<String?> signInWithGoogle() async {
-    try {
-      // Trigger the authentication flow
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  // Future<String?> signInWithGoogle() async {
+  //   try {
+  //     // Trigger the authentication flow
+  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  //
+  //     if (googleUser == null) {
+  //       // User canceled the Google Sign In
+  //       return 'Google Sign In was canceled.';
+  //     }
+  //
+  //     // Obtain the auth details from the request
+  //     final GoogleSignInAuthentication googleAuth =
+  //         await googleUser.authentication;
+  //
+  //     // Create a new credential
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleAuth.accessToken,
+  //       idToken: googleAuth.idToken,
+  //     );
+  //
+  //     // Sign in with Firebase using the Google Auth credentials
+  //     final UserCredential authResult =
+  //         await FirebaseAuth.instance.signInWithCredential(credential);
+  //
+  //     // Access the user information from the auth result
+  //     final User? user = authResult.user;
+  //
+  //     if (user != null) {
+  //       // Successful sign-in, you can return some user data or null
+  //       return user.uid; // You can return the UID, for example.
+  //     } else {
+  //       // Sign-in was not successful
+  //       return 'Google Sign In failed.';
+  //     }
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'user-not-found') {
+  //       return 'No user found for that email.'; // Specific error message
+  //     } else if (e.code == 'wrong-password') {
+  //       return 'Wrong password provided for that user.'; // Specific error message
+  //     } else {
+  //       // Handle other Firebase Authentication exceptions as needed.
+  //       return 'An error occurred during sign in.'; // Generic error message
+  //     }
+  //   } catch (e) {
+  //     // Handle other exceptions that may occur during sign in.
+  //     return 'An error occurred during sign in.'; // Generic error message
+  //   }
+  // }
 
-      if (googleUser == null) {
-        // User canceled the Google Sign In
-        return 'Google Sign In was canceled.';
-      }
-
-      // Obtain the auth details from the request
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-
-      // Create a new credential
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      // Sign in with Firebase using the Google Auth credentials
-      final UserCredential authResult =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-
-      // Access the user information from the auth result
-      final User? user = authResult.user;
-
-      if (user != null) {
-        // Successful sign-in, you can return some user data or null
-        return user.uid; // You can return the UID, for example.
-      } else {
-        // Sign-in was not successful
-        return 'Google Sign In failed.';
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        return 'No user found for that email.'; // Specific error message
-      } else if (e.code == 'wrong-password') {
-        return 'Wrong password provided for that user.'; // Specific error message
-      } else {
-        // Handle other Firebase Authentication exceptions as needed.
-        return 'An error occurred during sign in.'; // Generic error message
-      }
-    } catch (e) {
-      // Handle other exceptions that may occur during sign in.
-      return 'An error occurred during sign in.'; // Generic error message
-    }
-  }
-
-  Future<User?> registerWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleSignInAccount =
-          await GoogleSignIn().signIn();
-      if (googleSignInAccount == null) {
-        // The user canceled the sign-in process.
-        return null;
-      }
-
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
-      );
-
-      final UserCredential authResult =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-
-      final User? user = authResult.user;
-      return user;
-    } catch (error) {
-      debugPrint('Error registering with Google: $error');
-      return null;
-    }
-  }
-
-  Future<void> signOutGoogle() async {
-    // ignore: unused_local_variable
-    final GoogleSignInAccount? googleSignInAccount =
-        await GoogleSignIn().signOut();
-    debugPrint('User signed out from Google');
-  }
+  // Future<User?> registerWithGoogle() async {
+  //   try {
+  //     final GoogleSignInAccount? googleSignInAccount =
+  //         await GoogleSignIn().signIn();
+  //     if (googleSignInAccount == null) {
+  //       // The user canceled the sign-in process.
+  //       return null;
+  //     }
+  //
+  //     final GoogleSignInAuthentication googleSignInAuthentication =
+  //         await googleSignInAccount.authentication;
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleSignInAuthentication.accessToken,
+  //       idToken: googleSignInAuthentication.idToken,
+  //     );
+  //
+  //     final UserCredential authResult =
+  //         await FirebaseAuth.instance.signInWithCredential(credential);
+  //
+  //     final User? user = authResult.user;
+  //     return user;
+  //   } catch (error) {
+  //     debugPrint('Error registering with Google: $error');
+  //     return null;
+  //   }
+  // }
+  //
+  // Future<void> signOutGoogle() async {
+  //   // ignore: unused_local_variable
+  //   final GoogleSignInAccount? googleSignInAccount =
+  //       await GoogleSignIn().signOut();
+  //   debugPrint('User signed out from Google');
+  // }
 }

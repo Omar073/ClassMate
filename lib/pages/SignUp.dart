@@ -134,10 +134,11 @@ class _SignUpState extends State<SignUp> {
 
     try {
       // Sign out from Google first (if the user is already signed in)
-      await AuthenticationService().signOutGoogle();
+      // await AuthenticationService().signOutGoogle();
 
       // Sign up with Google
-      User? result = await AuthenticationService().registerWithGoogle();
+      // User? result = await AuthenticationService().registerWithGoogle();
+      User? result;
 
       // Dismiss the loading page
       setState(() => loading = false);

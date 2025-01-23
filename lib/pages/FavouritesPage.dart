@@ -16,6 +16,11 @@ class _FavouritesPageState extends State<FavouritesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Followed Courses'),
+        centerTitle: true,
+        backgroundColor: const Color(0xFF8A78FF),
+      ),
       body: FutureBuilder<List<Course>>(
         future: firestoreService.getFollowingCourses(),
         builder: (context, snapshot) {
@@ -34,6 +39,7 @@ class _FavouritesPageState extends State<FavouritesPage> {
             return SingleChildScrollView(
               child: Column(
                 children: [
+                  const SizedBox(height: 20),
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),

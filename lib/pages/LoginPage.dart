@@ -59,7 +59,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _handleGoogleLogin() async {
     setState(() => loading = true);
-    String? result = await AuthenticationService().signInWithGoogle();
+    // String? result = await AuthenticationService().signInWithGoogle();
+    String? result = '';
 
     // Dismiss the loading page
     setState(() => loading = false);

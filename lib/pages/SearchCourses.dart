@@ -230,7 +230,7 @@ class _SearchCoursesState extends State<SearchCourses> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
-          width: constraints.maxWidth > 300 ? 170 : double.infinity,
+          width: constraints.maxWidth > 300 ? 150 : double.infinity,
           height: 48,
           clipBehavior: Clip.antiAlias,
           decoration: const BoxDecoration(),
