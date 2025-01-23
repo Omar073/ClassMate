@@ -125,7 +125,9 @@ class _AddCoursePageState extends State<AddCoursePage> {
                       final courseName = _courseNameController.text;
                       final courseDescription =
                           _courseDescriptionController.text;
+                      // ignore: unused_local_variable
                       final faculty = _facultyController.text;
+                      // ignore: unused_local_variable
                       final university = _universityController.text;
                       final materials =
                           _materialsController.text; // Get materials

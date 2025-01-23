@@ -151,7 +151,7 @@ class CustomCourseItem extends StatelessWidget {
                     // Show delete confirmation dialog
                     _showDeleteConfirmationDialog();
                   },
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  style: ElevatedButton.styleFrom(foregroundColor: Colors.red),
                   child: const Text('Delete'),
                 ),
               ],

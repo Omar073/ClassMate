@@ -13,11 +13,15 @@ import 'services/authentication_service.dart';
 import 'services/notifications_service.dart';
 
 Future<void> main() async {
+  debugPrint("started main");
   WidgetsFlutterBinding.ensureInitialized();
+  debugPrint("init 1");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await NotificationsService().initNotifications();
+  debugPrint("init 2");
+  // await NotificationsService().initNotifications();
+  debugPrint("init 3");
   runApp(const MyApp());
 }
 

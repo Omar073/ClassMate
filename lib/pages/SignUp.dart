@@ -162,7 +162,7 @@ class _SignUpState extends State<SignUp> {
       }
     } catch (e) {
       // Handle any exceptions that might occur during sign-out or sign-up
-      print("Error: $e");
+      debugPrint("Error: $e");
       setState(() => loading = false);
     }
   }

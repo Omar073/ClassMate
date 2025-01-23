@@ -11,4 +11,24 @@ class Schedule {
       required this.instructorName,
       required this.courseDate,
       required this.courseTime});
+
+  factory Schedule.fromMap(Map<String, dynamic> data, String documentId) {
+    return Schedule(
+      centerID: data['centerID'] ?? '',
+      centerName: data['centerName'] ?? '',
+      instructorName: data['instructorName'] ?? '',
+      courseDate: data['courseDate'] ?? '',
+      courseTime: data['courseTime'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'centerID': centerID,
+      'centerName': centerName,
+      'instructorName': instructorName,
+      'courseDate': courseDate,
+      'courseTime': courseTime,
+    };
+  }
 }

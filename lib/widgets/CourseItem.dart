@@ -1,6 +1,5 @@
 import 'package:class_mate/pages/CourseInfo.dart';
 import 'package:flutter/material.dart';
-import 'package:class_mate/pages/CourseInfo.dart';
 
 class CourseItem extends StatelessWidget {
   final String courseName;

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 
 class NotificationsService {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
@@ -11,9 +12,9 @@ class NotificationsService {
       await _firebaseMessaging.requestPermission();
       final token = await getToken();
 
-      print("token: $token");
+      debugPrint("token: $token");
     } catch (e) {
-      print('Error requesting notification permission: $e');
+      debugPrint('Error requesting notification permission: $e');
     }
   }
 
@@ -22,7 +23,7 @@ class NotificationsService {
     try {
       return await _firebaseMessaging.getToken();
     } catch (e) {
-      print('Error getting device token: $e');
+      debugPrint('Error getting device token: $e');
       return null;
     }
   }
@@ -32,7 +33,7 @@ class NotificationsService {
     try {
       await _firebaseMessaging.subscribeToTopic(topic);
     } catch (e) {
-      print('Error subscribing to topic: $e');
+      debugPrint('Error subscribing to topic: $e');
     }
   }
 
@@ -41,7 +42,7 @@ class NotificationsService {
     try {
       await _firebaseMessaging.unsubscribeFromTopic(topic);
     } catch (e) {
-      print('Error unsubscribing from topic: $e');
+      debugPrint('Error unsubscribing from topic: $e');
     }
   }
 }

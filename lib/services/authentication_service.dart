@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
@@ -170,14 +171,15 @@ class AuthenticationService {
       final User? user = authResult.user;
       return user;
     } catch (error) {
-      print('Error registering with Google: $error');
+      debugPrint('Error registering with Google: $error');
       return null;
     }
   }
 
   Future<void> signOutGoogle() async {
+    // ignore: unused_local_variable
     final GoogleSignInAccount? googleSignInAccount =
         await GoogleSignIn().signOut();
-    print('User signed out from Google');
+    debugPrint('User signed out from Google');
   }
 }

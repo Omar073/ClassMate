@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: unused_import
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
 class AdminService {
+  // ignore: unused_field
   final CollectionReference _adminCollection =
       FirebaseFirestore.instance.collection('admin');
 
@@ -19,7 +22,7 @@ class AdminService {
         'materials': materials,
       });
     } catch (e) {
-      print(e);
+      debugPrint(e as String?);
     }
   }
 
@@ -29,7 +32,7 @@ class AdminService {
           FirebaseFirestore.instance.collection('courses');
       await coursesCollection.doc(courseID).delete();
     } catch (e) {
-      print(e);
+      debugPrint(e as String?);
     }
   }
 
@@ -45,7 +48,7 @@ class AdminService {
         'materials': materials,
       });
     } catch (e) {
-      print(e);
+      debugPrint(e as String?);
     }
   }
 }

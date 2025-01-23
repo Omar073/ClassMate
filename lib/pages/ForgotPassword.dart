@@ -41,7 +41,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         );
         Navigator.pop(context); // Close the "Forgot Password" screen
       } catch (e) {
-        print('Error sending password reset email: $e');
+        debugPrint('Error sending password reset email: $e');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error: $e'),

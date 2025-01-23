@@ -12,4 +12,23 @@ class CenterOBJ {
     required this.contactPhone,
     required this.location,
   });
+  
+  factory CenterOBJ.fromMap(Map<String, dynamic> data, String documentId) {
+    return CenterOBJ(
+      centerName: data['centerName'] ?? '',
+      centerID: documentId,
+      contactEmail: data['contactEmail'] ?? '',
+      contactPhone: data['contactPhone'] ?? '',
+      location: data['location'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'centerName': centerName,
+      'contactEmail': contactEmail,
+      'contactPhone': contactPhone,
+      'location': location,
+    };
+  }
 }

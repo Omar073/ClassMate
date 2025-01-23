@@ -27,7 +27,7 @@ class _CourseInfoState extends State<CourseInfo> {
     try {
       return await firestoreService.isFollowingCourse(widget.courseID);
     } catch (e) {
-      print('Error fetching course data: $e');
+      debugPrint('Error fetching course data: $e');
       return false; // Return false in case of an error
     }
   }
@@ -147,7 +147,7 @@ class _CourseInfoState extends State<CourseInfo> {
                                       await firestoreService
                                           .toggleFollowCourse(widget.courseID);
                                     } catch (e) {
-                                      print('Error toggling follow status: $e');
+                                      debugPrint('Error toggling follow status: $e');
                                       // Handle the error (e.g., show an error message)
                                       setState(() {
                                         isCourseFollowed =
@@ -202,7 +202,7 @@ class _CourseInfoState extends State<CourseInfo> {
                                       await firestoreService
                                           .toggleFollowCourse(widget.courseID);
                                     } catch (e) {
-                                      print('Error toggling follow status: $e');
+                                      debugPrint('Error toggling follow status: $e');
                                       // Handle the error (e.g., show an error message)
                                       setState(() {
                                         isCourseFollowed =

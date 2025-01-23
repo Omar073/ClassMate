@@ -12,6 +12,7 @@ class AvailableCenters extends StatefulWidget {
 class _AvailableCentersState extends State<AvailableCenters> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(

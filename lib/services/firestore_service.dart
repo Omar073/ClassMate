@@ -24,13 +24,13 @@ class FirestoreService {
             data['courseDescriptoin'] as String?; // Add null-check
 
         if (courseName == null) {
-          print('Course Name is null for document ID: ${doc.id}');
+          debugPrint('Course Name is null for document ID: ${doc.id}');
         }
         if (courseCode == null) {
-          print('Course Code is null for document ID: ${doc.id}');
+          debugPrint('Course Code is null for document ID: ${doc.id}');
         }
         if (courseDescription == null) {
-          print('Course Description is null for document ID: ${doc.id}');
+          debugPrint('Course Description is null for document ID: ${doc.id}');
         }
 
         return Course(
@@ -45,7 +45,7 @@ class FirestoreService {
       }).toList();
     } catch (e) {
       if (kDebugMode) {
-        print('Error fetching courses: $e');
+        debugPrint('Error fetching courses: $e');
       }
       return [];
     }
@@ -71,7 +71,7 @@ class FirestoreService {
       }).toList();
     } catch (e) {
       if (kDebugMode) {
-        print('Error fetching centers: $e');
+        debugPrint('Error fetching centers: $e');
       }
       return [];
     }
@@ -86,7 +86,7 @@ class FirestoreService {
       return userFollowing.contains(courseId);
     } catch (e) {
       if (kDebugMode) {
-        print('Error fetching user following data: $e');
+        debugPrint('Error fetching user following data: $e');
       }
       return false; // Handle the error and return false
     }
@@ -108,7 +108,7 @@ class FirestoreService {
       return []; // Return an empty list if user data doesn't exist or no following courses
     } catch (e) {
       if (kDebugMode) {
-        print('Error fetching user following data: $e');
+        debugPrint('Error fetching user following data: $e');
       }
       return []; // Handle the error and return an empty list
     }
@@ -132,13 +132,13 @@ class FirestoreService {
             data['courseDescriptoin'] as String?; // Add null-check
 
         if (courseName == null) {
-          print('Course Name is null for document ID: ${doc.id}');
+          debugPrint('Course Name is null for document ID: ${doc.id}');
         }
         if (courseCode == null) {
-          print('Course Code is null for document ID: ${doc.id}');
+          debugPrint('Course Code is null for document ID: ${doc.id}');
         }
         if (courseDescription == null) {
-          print('Course Description is null for document ID: ${doc.id}');
+          debugPrint('Course Description is null for document ID: ${doc.id}');
         }
 
         return Course(
@@ -153,7 +153,7 @@ class FirestoreService {
       }).toList();
     } catch (e) {
       if (kDebugMode) {
-        print('Error fetching user following data: $e');
+        debugPrint('Error fetching user following data: $e');
       }
       return []; // Handle the error and return an empty list
     }
@@ -176,7 +176,7 @@ class FirestoreService {
         });
       }
     } catch (e) {
-      print('Error toggling follow course: $e');
+      debugPrint('Error toggling follow course: $e');
     }
   }
 }
